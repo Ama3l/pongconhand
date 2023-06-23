@@ -73,13 +73,15 @@ async function draw() {
 	// if (handedness === 'Left') {}
 
 	if (detector && capture.loadedmetadata) {
-		detector.estimateHands(capture.elt, {
-			flipHorizontal: true
-		}).then((hands) => {
+		detector.estimateHands(capture.elt, { flipHorizontal: true }).then((hands) => {
 			for (let j = 0; j < hands.length; j++) {
 				const hand = hands[j];
-				movePaddleA(hand); // Chiamata alla funzione movePaddleA con le informazioni sulla mano
-				movePaddleB(hand.handedness)
+				if (hand.handedness == 'Left') {
+					movePaddleA(hand); // Chiamata alla funzione movePaddleA con le informazioni sulla mano
+				}
+				if (hand.handedness == 'Right') {
+					movePaddleB(hand)
+				}
 			}
 		});
 	}
