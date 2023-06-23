@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+		<title>H1 p5js</title>
+		
+		<script src="https://unpkg.com/@tensorflow/tfjs-core@3.7.0/dist/tf-core.min.js"></script>
+		<script src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@3.7.0/dist/tf-backend-webgl.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.0/dist/hand-pose-detection.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/hands.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+  <style>
+    	*{
+			box-sizing: border-box;
+			user-select: none;
+		}
+
+   html,
+    body {
+      background-color: #000;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+			margin: 50px 350px;
+			position: relative;
+		}
+		.layer {
+			position: absolute;
+			top: 500;
+			left: 0;
+		}
+
+    canvas {
+      border: 2px solid #fff;
+      display: block;
+    }
+
+    #img-container {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #img-container img {
+      width: 200px;
+      height: auto;
+      position: absolute;
+    }
+
+    #img-container img:nth-child(1) {
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #img-container img:nth-child(2) {
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+<body>
+  <div id="scoreboard">
+    <div id="player1">Player 1: 0</div>
+    <div id="player2">Player 2: 0</div>
+  </div>
+  <div id="canvas-container"></div>
+  <div id="img-container">
+    <img id="imgPlayer1" src="./GAME__OVER.png" alt="Player 1 Lost">
+    <img id="imgPlayer2" src="./YOU_WIN.png" alt="Player 2 Won">
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="src/sketch.js"></script>
+  <script>
+    
+    
+  
